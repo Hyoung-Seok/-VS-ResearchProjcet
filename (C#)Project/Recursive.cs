@@ -2,12 +2,13 @@
 
 public class RecursiveTest
 {
-    public void Recursive(int num)
+    public int Factorial(int n)
     {
-        // 재귀 함수의 탈출 조건
-        if (num <= 0) return;
+        if(n <= 0)
+        {
+            return 1;
+        }
 
-        Console.WriteLine($"Recursive Call : {num}");
-        Recursive(num - 1);
+        return n * Factorial(n - 1);
     }
 }
