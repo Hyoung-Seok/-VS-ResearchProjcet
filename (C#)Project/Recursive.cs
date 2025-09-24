@@ -2,10 +2,12 @@
 
 public class RecursiveTest
 {
-    public void Recursive()
+    public void Recursive(int num)
     {
-        Console.WriteLine("Recursive Call!");
-        // 자기 자신 호출
-        Recursive();
+        // 재귀 함수의 탈출 조건
+        if (num <= 0) return;
+
+        Console.WriteLine($"Recursive Call : {num}");
+        Recursive(num - 1);
     }
 }
