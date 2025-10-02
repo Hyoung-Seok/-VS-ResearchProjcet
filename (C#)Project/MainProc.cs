@@ -6,7 +6,7 @@ public static class MainProc
     {
         var test = new RecursiveTest();
 
-        int n = int.Parse(Console.ReadLine());
-        Console.WriteLine($"{n} 번째 피보나치 : {test.Fibonacci(n)}");
+        var arr = new int[] { 1, 3, 5, 7, 9, 12, 13, 14, 16, 19, 20 };
+        Console.WriteLine(test.BinarySearch(arr, 0, arr.Length - 1, 14));
     }
 }
