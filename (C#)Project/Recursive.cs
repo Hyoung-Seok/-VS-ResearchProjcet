@@ -45,4 +45,23 @@ public class RecursiveTest
 
         return mid;
     }
+
+    public void HanoiTowerMove(int num, char from, char by, char to)
+    {
+        if(num <= 1)
+        {
+            Console.WriteLine($"원반 {num}을 {from}에서 {to}로 이동");
+        }
+        else
+        {
+            // 원반 n개를 A->C로 옮기기 위해 n-1개를 먼저 b로 옮김
+            HanoiTowerMove(num - 1, from, to, by);
+
+            // 큰 원반을 A에서 C로 이동
+            Console.WriteLine($"원반 {num}을 {from}에서 {to}로 이동");
+
+            // 작은 원반 n-1개를 B->C로 이동
+            HanoiTowerMove(num - 1, by, from, to);
+        }
+    }
 }
