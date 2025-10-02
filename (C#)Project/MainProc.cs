@@ -6,10 +6,7 @@ public static class MainProc
     {
         var test = new RecursiveTest();
 
-        Console.WriteLine($"5! = {test.Factorial(5)}");
-        Console.WriteLine($"4! = {test.Factorial(4)}");
-        Console.WriteLine($"3! = {test.Factorial(3)}");
-        Console.WriteLine($"2! = {test.Factorial(2)}");
-        Console.WriteLine($"1! = {test.Factorial(1)}");
+        int n = int.Parse(Console.ReadLine());
+        Console.WriteLine($"{n} 번째 피보나치 : {test.Fibonacci(n)}");
     }
 }
