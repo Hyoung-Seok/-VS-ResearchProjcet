@@ -1,5 +1,6 @@
 ﻿#pragma once
-typedef int LData;
+#include "Point.h"
+typedef Point* LData;
 constexpr int LEN = 100;
 
 struct ArrayList

@@ -5,35 +5,71 @@ using namespace std;
 int main()
 {
 	List list;
+	Point* pp = nullptr;
+	Point comparePoint;
 
 	InitList(&list);
 
-	// 배열 기반 리스트에 값 삽입
-	for(int i = 0; i < 100; ++i)
+	pp = new Point;
+	InitPoint(pp, 2, 1);
+	Insert(&list, pp);
+
+	pp = new Point;
+	InitPoint(pp, 2, 2);
+	Insert(&list, pp);
+
+	pp = new Point;
+	InitPoint(pp, 3, 1);
+	Insert(&list, pp);
+
+	pp = new Point;
+	InitPoint(pp, 3, 2);
+	Insert(&list, pp);
+	
+	// 저장 데이터 출력
+	cout << "현재 데이터 수 : " << Count(&list) << endl;
+
+	if(First(&list, &pp))
 	{
-		Insert(&list, i);
+		PrintPoint(pp);
+
+		while(Next(&list, &pp))
+			PrintPoint(pp);
 	}
 
-	// 값 확인
-	LData data;
-	First(&list, &data);
-	cout << data << ", ";
+	// 데이터 삭제
+	comparePoint.x = 2;
+	comparePoint.y = 0;
 
-	while(Next(&list, &data) == true)
+	if(First(&list, &pp))
 	{
-		cout << data << ", ";
+		// x가 2인 모든 데이터 삭제
+		if(Compare(pp, &comparePoint) == 1)
+		{
+			pp = Remove(&list);
+			delete pp;
+		}
+
+		while (Next(&list, &pp))
+		{
+			if (Compare(pp, &comparePoint) == 1)
+			{
+				pp = Remove(&list);
+				delete pp;
+			}
+		}
 	}
-	cout << endl;
 
-	// 첫 번째 값 제거
-	First(&list, &data);
-	data = Remove(&list);
+	// 삭제 후 저장 데이터 출력
+	cout << "현재 데이터 수 : " << Count(&list) << endl;
 
-	// 값 제거 후 확인
-	cout << "제거된 데이터 : " << data << endl;
-	cout << "리스트 수 : " << Count(&list) << endl;
+	if (First(&list, &pp))
+	{
+		PrintPoint(pp);
 
-	PrintAllValue(&list);
+		while (Next(&list, &pp))
+			PrintPoint(pp);
+	}
 
 	return 0;
 }
