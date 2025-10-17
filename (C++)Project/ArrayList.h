@@ -18,3 +18,5 @@ bool Next(ArrayList* pList, LData* data);
 
 LData Remove(ArrayList* pList);
 int Count(ArrayList* pList);
+
+void PrintAllValue(const ArrayList* const pList);
