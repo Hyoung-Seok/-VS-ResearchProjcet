@@ -8,5 +8,5 @@ struct Point
 
 void InitPoint(Point* p, int x, int y);
 void PrintPoint(const Point* p);
-int Compare(Point* p1, Point p2);
+int Compare(Point* p1, Point* p2);
 

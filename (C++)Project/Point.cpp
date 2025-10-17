@@ -1,4 +1,4 @@
-#include "Point.h"
+ï»¿#include "Point.h"
 #include <iostream>
 
 void InitPoint(Point* p, int x, int y)
@@ -9,19 +9,19 @@ void InitPoint(Point* p, int x, int y)
 
 void PrintPoint(const Point* p)
 {
-	std::cout << "ÁÂÇ¥ : " << '(' << p->x << ', ' << p->y << ')' << std::endl;
+	std::cout << "ì¢Œí‘œ : " << '(' << p->x << ", " << p->y << ')' << std::endl;
 }
 
-int Compare(Point* p1, Point p2)
+int Compare(Point* p1, Point* p2)
 {
-	// µÎ °ªÀÌ ¸ðµÎ °°À¸¸é 0
-	if (p1->x == p2.x && p1->y == p2.y)
+	// ë‘ ê°’ì´ ëª¨ë‘ ê°™ìœ¼ë©´ 0
+	if (p1->x == p2->x && p1->y == p2->y)
 		return 0;
-	// x°ªÀÌ °°À¸¸é 1
-	if (p1->x == p2.x)
+	// xê°’ì´ ê°™ìœ¼ë©´ 1
+	if (p1->x == p2->x)
 		return 1;
-	// y°ªÀÌ °°À¸¸é 2
-	if (p1->y == p2.y)
+	// yê°’ì´ ê°™ìœ¼ë©´ 2
+	if (p1->y == p2->y)
 		return 2;
 
 	return -1;
