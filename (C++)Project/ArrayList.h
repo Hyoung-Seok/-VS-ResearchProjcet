@@ -6,15 +6,15 @@ struct ArrayList
 {
 	LData arr[LEN];
 	int count;
-	int cur_position;
+	int curPos;
 };
 
 // 추상 자료형(ADT)
 void InitList(ArrayList* pList);
 void Insert(ArrayList* pList, LData data);
 
-void First(ArrayList* pList, LData* data);
-void Next(ArrayList* pList, LData* data);
+bool First(ArrayList* pList, LData* data);
+bool Next(ArrayList* pList, LData* data);
 
 LData Remove(ArrayList* pList);
 int Count(ArrayList* pList);
