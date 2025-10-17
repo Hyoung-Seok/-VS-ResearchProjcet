@@ -2,13 +2,13 @@
 #include <iostream>
 using namespace std;
 
-void InitList(ArrayList* pList)
+void InitList(List* pList)
 {
 	pList->count = 0;
 	pList->curPos = 0;
 }
 
-void Insert(ArrayList* pList, LData data)
+void Insert(List* pList, LData data)
 {
 	if(pList->count >= LEN)
 	{
@@ -19,7 +19,7 @@ void Insert(ArrayList* pList, LData data)
 	pList->arr[pList->count++] = data;
 }
 
-bool First(ArrayList* pList, LData* data)
+bool First(List* pList, LData* data)
 {
 	if (pList->count <= 0)
 		return false;
@@ -29,7 +29,7 @@ bool First(ArrayList* pList, LData* data)
 	return true;
 }
 
-bool Next(ArrayList* pList, LData* data)
+bool Next(List* pList, LData* data)
 {
 	if (pList->curPos >= pList->count - 1)
 		return false;
@@ -38,7 +38,7 @@ bool Next(ArrayList* pList, LData* data)
 	return true;
 }
 
-LData Remove(ArrayList* pList)
+LData Remove(List* pList)
 {
 	if (pList->count <= 0)
 	{
@@ -59,12 +59,12 @@ LData Remove(ArrayList* pList)
 	return result;
 }
 
-int Count(ArrayList* pList)
+int Count(List* pList)
 {
 	return pList->count;
 }
 
-void PrintAllValue(const ArrayList* const pList)
+void PrintAllValue(const List* const pList)
 {
 	for(int i = 0; i < pList->count; ++i)
 	{
