@@ -35,9 +35,25 @@ void Add(List* p_list, LData data)
 	auto node = new Node;
 	node->data = data;
 
-	auto firstNode = p_list->head->nextNode;
-	node->nextNode = firstNode;
-	p_list->head->nextNode = node;
+	if(p_list->comp != nullptr)
+	{
+		auto cur = p_list->head;
+
+		while(cur->nextNode != nullptr &&
+			p_list->comp(data, cur->nextNode->data) != 0)
+		{
+			cur = cur->nextNode;
+		}
+
+		node->nextNode = cur->nextNode;
+		cur->nextNode = node;
+	}
+	else
+	{
+		auto firstNode = p_list->head->nextNode;
+		node->nextNode = firstNode;
+		p_list->head->nextNode = node;
+	}
 
 	p_list->count++;
 }
@@ -126,4 +142,9 @@ bool CheckListEmpty(List* p_list)
 {
 	return p_list == nullptr || p_list->head == nullptr 
 		|| p_list->head->nextNode == nullptr;
+}
+
+void SetSortedRule(List* p_list, int(*comp)(LData d1, LData d2))
+{
+	p_list->comp = comp;
 }

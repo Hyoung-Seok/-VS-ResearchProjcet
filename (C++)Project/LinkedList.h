@@ -12,6 +12,7 @@ struct LinkedList
 	Node* head = nullptr;
 	Node* cur = nullptr;
 	Node* prev = nullptr;
+	int (*comp)(LData d1, LData d2) = nullptr;
 	int count = 0;
 };
 
@@ -28,3 +29,5 @@ LData RemoveAt(List* p_list, int index);
 
 int Count(List* p_list);
 bool CheckListEmpty(List* p_list);
+
+void SetSortedRule(List* p_list, int (*comp)(LData d1, LData d2));
