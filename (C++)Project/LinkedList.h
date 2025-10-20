@@ -27,3 +27,4 @@ LData Remove(List* p_list);
 LData RemoveAt(List* p_list, int index);
 
 int Count(List* p_list);
+bool CheckListEmpty(List* p_list);

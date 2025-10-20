@@ -44,7 +44,7 @@ void Add(List* p_list, LData data)
 
 bool First(List* p_list, LData* data)
 {
-	if(p_list == nullptr || p_list->head == nullptr)
+	if(CheckListEmpty(p_list) == true)
 	{
 		cout << "저장된 데이터가 없습니다!" << endl;
 		return false;
@@ -60,10 +60,15 @@ bool First(List* p_list, LData* data)
 
 bool Next(List* p_list, LData* data)
 {
-	if(p_list->cur->nextNode == nullptr)
+	if (CheckListEmpty(p_list) == true)
 	{
 		return false;
 	}
+
+	if(p_list->cur->nextNode == nullptr)
+	{
+		return false;
+	}	
 
 	p_list->prev = p_list->cur;
 	p_list->cur = p_list->cur->nextNode;
@@ -77,6 +82,7 @@ LData Remove(List* p_list)
 	if(p_list->count == 0)
 	{
 		cout << "삭제할 데이터가 없습니다." << endl;
+		return LData();
 	}
 
 	auto deleteNode = p_list->cur;
@@ -93,18 +99,19 @@ LData Remove(List* p_list)
 
 LData RemoveAt(List* p_list, int index)
 {
-	if(index >= p_list->count - 1)
+	if(CheckListEmpty(p_list) == true || index > p_list->count - 1 
+		|| index < 0)
 	{
 		cout << "Out of Range!" << endl;
 		return LData();
 	}
 
-	auto data = new LData();
+	LData data;
 
-	First(p_list, data);
+	First(p_list, &data);
 	for(int i = 0; i != index; ++i)
 	{
-		Next(p_list, data);
+		Next(p_list, &data);
 	}
 
 	return Remove(p_list);
@@ -113,4 +120,10 @@ LData RemoveAt(List* p_list, int index)
 int Count(List* p_list)
 {
 	return p_list->count;
+}
+
+bool CheckListEmpty(List* p_list)
+{
+	return p_list == nullptr || p_list->head == nullptr 
+		|| p_list->head->nextNode == nullptr;
 }

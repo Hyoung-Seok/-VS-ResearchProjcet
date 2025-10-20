@@ -69,5 +69,23 @@ int main()
 		cout << endl;
 	}
 
+	// 0번째 데이터 삭제
+	RemoveAt(&list, 0);
+	index = 0;
+
+	if (First(&list, &data) == true)
+	{
+		cout << index << "번 데이터 : " << data << endl;
+		index++;
+
+		while (Next(&list, &data) == true)
+		{
+			cout << index << "번 데이터 : " << data << endl;
+			index++;
+		}
+
+		cout << endl;
+	}
+
 	return 0;
 }
