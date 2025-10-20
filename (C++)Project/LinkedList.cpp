@@ -91,6 +91,25 @@ LData Remove(List* p_list)
 	return value;
 }
 
+LData RemoveAt(List* p_list, int index)
+{
+	if(index >= p_list->count - 1)
+	{
+		cout << "Out of Range!" << endl;
+		return LData();
+	}
+
+	auto data = new LData();
+
+	First(p_list, data);
+	for(int i = 0; i != index; ++i)
+	{
+		Next(p_list, data);
+	}
+
+	return Remove(p_list);
+}
+
 int Count(List* p_list)
 {
 	return p_list->count;

@@ -24,5 +24,6 @@ bool First(List* p_list, LData* data);
 bool Next(List* p_list, LData* data);
 
 LData Remove(List* p_list);
+LData RemoveAt(List* p_list, int index);
 
 int Count(List* p_list);
