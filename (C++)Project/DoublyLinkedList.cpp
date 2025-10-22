@@ -1,4 +1,4 @@
-#include "DoublyLinkedList.h"
+ï»¿#include "DoublyLinkedList.h"
 #include <iostream>
 using namespace std;
 
@@ -7,7 +7,7 @@ void InitList(List* p_list)
 	if(p_list == nullptr)
 		return;
 
-	// Head°¡ Á¸ÀçÇÏÁö ¾Ê´Â °æ¿ì
+	// Headê°€ ì¡´ìž¬í•˜ì§€ ì•ŠëŠ” ê²½ìš°
 	if(p_list->head == nullptr)
 	{
 		auto newNode = new Node();
@@ -19,7 +19,7 @@ void InitList(List* p_list)
 		return;
 	}
 
-	// Head¿Í µ¥ÀÌÅÍ°¡ Á¸ÀçÇÏ´Â °æ¿ì
+	// Headì™€ ë°ì´í„°ê°€ ì¡´ìž¬í•˜ëŠ” ê²½ìš°
 	auto iter = p_list->head->next;
 	while(iter != nullptr)
 	{
@@ -28,7 +28,7 @@ void InitList(List* p_list)
 		delete del;
 	}
 
-	// Head¸¸ Á¸ÀçÇÏ´Â °æ¿ì
+	// Headë§Œ ì¡´ìž¬í•˜ëŠ” ê²½ìš°
 	p_list->head->next = nullptr;
 	p_list->cur = p_list->head;
 	p_list->count = 0;
@@ -45,11 +45,11 @@ void Add(List* p_list, LData data)
 
 	auto oldFirst = p_list->head->next;
 
-	// »õ ³ëµå¸¦ ¿¬°á
+	// ìƒˆ ë…¸ë“œë¥¼ ì—°ê²°
 	newNode->prev = p_list->head;
 	newNode->next = oldFirst;
 
-	// ±âÁ¸ ³ëµå ¿¬°á
+	// ê¸°ì¡´ ë…¸ë“œ ì—°ê²°
 	p_list->head->next = newNode;
 	if (oldFirst != nullptr)
 	{
@@ -89,21 +89,21 @@ LData Remove(List* p_list)
 		return -1;
 	}
 
-	auto delNode = p_list->cur; // »èÁ¦ÇÒ ³ëµå
-	auto prev = delNode->prev; // »èÁ¦ ³ëµåÀÇ ÀÌÀü ³ëµå(ÃÖ¼Ò Head)
-	auto next = delNode->next; // »èÁ¦ ³ëµåÀÇ ´ÙÀ½ ³ëµå(ÃÖ´ë nullptr)
+	auto delNode = p_list->cur; // ì‚­ì œí•  ë…¸ë“œ
+	auto prev = delNode->prev; // ì‚­ì œ ë…¸ë“œì˜ ì´ì „ ë…¸ë“œ(ìµœì†Œ Head)
+	auto next = delNode->next; // ì‚­ì œ ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œ(ìµœëŒ€ nullptr)
 
-	// ´ÙÀ½ ³ëµå·Î ÀÌµ¿ °¡´ÉÇÏ¸é
+	// ë‹¤ìŒ ë…¸ë“œë¡œ ì´ë™ ê°€ëŠ¥í•˜ë©´
 	if(next != nullptr)
 	{
 		p_list->cur = next;
 	}
-	// ÀÌÀü ³ëµå·Î ÀÌµ¿ÇÏ°í, ÀÌÀü ³ëµå°¡ head°¡ ¾Æ´Ï¶ó¸é
+	// ì´ì „ ë…¸ë“œë¡œ ì´ë™í•˜ê³ , ì´ì „ ë…¸ë“œê°€ headê°€ ì•„ë‹ˆë¼ë©´
 	else if(prev != nullptr && prev != p_list->head)
 	{
 		p_list->cur = prev;
 	}
-	// cur°¡ ÀÌµ¿ÀÌ ºÒ°¡´ÉÇÑ °æ¿ì(´õ ÀÌ»ó ³²Àº ³ëµå ¾øÀ½)
+	// curê°€ ì´ë™ì´ ë¶ˆê°€ëŠ¥í•œ ê²½ìš°(ë” ì´ìƒ ë‚¨ì€ ë…¸ë“œ ì—†ìŒ)
 	else
 	{
 		p_list->cur = nullptr;
@@ -121,7 +121,7 @@ LData Remove(List* p_list)
 
 LData RemoveAt(List* p_list, int index)
 {
-	// ¸®½ºÆ®°¡ ºñ¾îÀÖ°Å³ª ÀÎµ¦½º°¡ ¹üÀ§¸¦ ¹þ¾î³­ °æ¿ì
+	// ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìžˆê±°ë‚˜ ì¸ë±ìŠ¤ê°€ ë²”ìœ„ë¥¼ ë²—ì–´ë‚œ ê²½ìš°
 	if (CheckListNull(p_list) == true || index > p_list->count - 1 
 		|| p_list->head->next == nullptr)
 	{

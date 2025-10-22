@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<random>
 #include "DoublyLinkedList.h"
 using namespace std;
@@ -17,7 +17,7 @@ int main()
 		Add(&list, dist(gen));
 	}
 
-	// ÀúÀåµÈ µ¥ÀÌÅÍ °ª È®ÀÎ
+	// ì €ì¥ëœ ë°ì´í„° ê°’ í™•ì¸
 	LData data;
 	if(First(&list, &data) == true)
 	{
@@ -28,10 +28,10 @@ int main()
 			cout << data << ", ";
 		}
 
-		cout << endl << "ÀúÀåµÈ µ¥ÀÌÅÍ °¹¼ö : " << Count(&list) << endl << endl;
+		cout << endl << "ì €ì¥ëœ ë°ì´í„° ê°¯ìˆ˜ : " << Count(&list) << endl << endl;
 	}
 
-	// Ã¹ ¹øÂ° µ¥ÀÌÅÍ »èÁ¦
+	// ì²« ë²ˆì§¸ ë°ì´í„° ì‚­ì œ
 	First(&list, &data);
 	Remove(&list);
 
@@ -44,10 +44,10 @@ int main()
 			cout << data << ", ";
 		}
 
-		cout << endl << "ÀúÀåµÈ µ¥ÀÌÅÍ °¹¼ö : " << Count(&list) << endl << endl;
+		cout << endl << "ì €ì¥ëœ ë°ì´í„° ê°¯ìˆ˜ : " << Count(&list) << endl << endl;
 	}
 
-	// Æ¯Á¤ À§Ä¡ »èÁ¦ È®ÀÎ
+	// íŠ¹ì • ìœ„ì¹˜ ì‚­ì œ í™•ì¸
 	RemoveAt(&list, 8);
 	if (First(&list, &data) == true)
 	{
@@ -58,7 +58,7 @@ int main()
 			cout << data << ", ";
 		}
 
-		cout << endl << "ÀúÀåµÈ µ¥ÀÌÅÍ °¹¼ö : " << Count(&list) << endl << endl;
+		cout << endl << "ì €ì¥ëœ ë°ì´í„° ê°¯ìˆ˜ : " << Count(&list) << endl << endl;
 	}
 
 	return 0;
