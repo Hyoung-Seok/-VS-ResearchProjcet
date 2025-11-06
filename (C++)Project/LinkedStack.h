@@ -1,5 +1,5 @@
 ﻿#pragma once
-typedef int Data;
+typedef char Data;
 
 struct Node
 {
