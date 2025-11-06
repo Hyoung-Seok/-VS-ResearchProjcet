@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 typedef int Data;
 
 struct Node
@@ -14,10 +14,10 @@ struct LinkedStack
 
 typedef LinkedStack Stack;
 
-void LInit(Stack* p_stack);				// ½ºÅÃ ÃÊ±âÈ­
+void LInit(Stack* p_stack);				// ìŠ¤íƒ ì´ˆê¸°í™”
 
-void LPush(Stack* p_stack, Data data);	// ½ºÅÃ¿¡ µ¥ÀÌÅÍ ³Ö±â
-Data LPop(Stack* p_stack);				// ½ºÅÃ¿¡¼­ µ¥ÀÌÅÍ ²¨³»±â
-Data LPeek(Stack* p_stack);				// ÃÖ»óÀ§ µ¥ÀÌÅÍ È®ÀÎ
+void LPush(Stack* p_stack, Data data);	// ìŠ¤íƒì— ë°ì´í„° ë„£ê¸°
+Data LPop(Stack* p_stack);				// ìŠ¤íƒì—ì„œ ë°ì´í„° êº¼ë‚´ê¸°
+Data LPeek(Stack* p_stack);				// ìµœìƒìœ„ ë°ì´í„° í™•ì¸
 
-bool LIsEmpty(Stack* p_stack);			// ½ºÅÃÀÌ ºñ¾ú´ÂÁö È®ÀÎ
+bool LIsEmpty(Stack* p_stack);			// ìŠ¤íƒì´ ë¹„ì—ˆëŠ”ì§€ í™•ì¸

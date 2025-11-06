@@ -1,28 +1,29 @@
 ﻿#include<iostream>
-#include"ArrayStack.h"
+//#include"ArrayStack.h"
+#include"LinkedStack.h"
 using namespace std;
 
 int main()
 {
 	Stack stack;
-	Data data = 0;
+	LInit(&stack);
 
-	Init(&stack);
-
-	for(int i = 1; i <= 99; i += 2)
+	for(int i = 2; i <= 100; i += 2)
 	{
-		Push(&stack, i);
+		LPush(&stack, i);
 	}
 
-	data = Peek(&stack);
+	Data data = LPeek(&stack);
 	cout << "최상위 데이터: " << data << endl;
 
-	while(IsEmpty(&stack) == false)
+	//모든 데이터 꺼내기
+	while(LIsEmpty(&stack) == false)
 	{
-		data = Pop(&stack);
+		data = LPop(&stack);
 		cout << data << " ";
 	}
 
 	cout << endl;
+
 	return 0;
 }
