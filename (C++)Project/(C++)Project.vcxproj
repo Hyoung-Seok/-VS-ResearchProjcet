@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="InfixToPostfix.cpp" />
-    <ClCompile Include="LinkedStack.cpp" />
     <ClCompile Include="MainProc.cpp" />
   </ItemGroup>
   <ItemGroup>
