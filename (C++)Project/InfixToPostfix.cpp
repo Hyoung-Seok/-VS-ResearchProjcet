@@ -4,13 +4,10 @@
 #include <iostream>
 using namespace std;
 
-// 쟁반
-Stack stack;
-
 string InfixToPostfix(const string& infix)
 {
+	LinkedStack<char> stack;
 	string postfix;
-	LInit(&stack);
 
 	for(char ch : infix)
 	{
@@ -26,14 +23,14 @@ string InfixToPostfix(const string& infix)
 			{
 				// 여는 괄호인 경우
 				case '(':
-					LPush(&stack, ch);
+					stack.Push(ch);
 					break;
 
 				// 닫는 괄호인 경우
 				case ')':
 					while(true)
 					{
-						char pop = LPop(&stack);
+						char pop = stack.Pop();
 
 						// 여는 괄호가 나올 때까지 후위 연산자에 저장
 						if(pop == '(')
@@ -47,26 +44,33 @@ string InfixToPostfix(const string& infix)
 				case '*': case '/':
 					// 스택이 비어있지 않고, 스택의 top 연산자의 우선순위가 현재 연산자보다
 					// 높거나 같다면
-					while(LIsEmpty(&stack) == false && 
-						CompareOpPrec(LPeek(&stack), ch) >= 0)
+					while(stack.IsEmpty() == false && 
+						CompareOpPrec(stack.Peek(), ch) >= 0)
 					{
-						postfix += LPop(&stack);
+						postfix += stack.Pop();
 					}
 
 					// 아니라면 연산자를 스택에 저장
-					LPush(&stack, ch);
+					stack.Push(ch);
 					break;
 			}
 		}
 	}
 
 	// 남아있는 연산을 모두 후위 연산자에 저장
-	while (LIsEmpty(&stack) == false)
+	while (stack.IsEmpty() == false)
 	{
-		postfix += LPop(&stack);
+		postfix += stack.Pop();
 	}
 
 	return postfix;
+}
+
+int CalculatePostfix(const string& postfix)
+{
+
+
+	return 0;
 }
 
 // 연산자 우선순위 반환
