@@ -68,9 +68,40 @@ string InfixToPostfix(const string& infix)
 
 int CalculatePostfix(const string& postfix)
 {
+	LinkedStack<int> stack;
 
+	for(char ch : postfix)
+	{
+		// 피연산자(숫자)인 경우
+		if(isdigit(ch) != 0)
+		{
+			stack.Push(ch - '0');
+		}
+		else
+		{
+			// 두 개의 피연산자를 꺼냄
+			char op2 = stack.Pop();
+			char op1 = stack.Pop();
 
-	return 0;
+			switch (ch)
+			{
+				case '+':
+					stack.Push(op1 + op2);
+					break;
+				case '-':
+					stack.Push(op1 - op2);
+					break;
+				case '*':
+					stack.Push(op1 * op2);
+					break;
+				case '/':
+					stack.Push(op1 / op2);
+					break;
+			}
+		}
+	}
+
+	return stack.Pop();
 }
 
 // 연산자 우선순위 반환

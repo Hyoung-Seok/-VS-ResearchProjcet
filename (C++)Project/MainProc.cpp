@@ -10,6 +10,7 @@ int main()
 	string postfixExp = InfixToPostfix(infixExp);
 
 	cout << postfixExp << endl;
+	cout << CalculatePostfix(postfixExp) << endl;
 
 	return 0;
 }
