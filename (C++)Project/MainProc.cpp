@@ -1,20 +1,21 @@
 #include<iostream>
-#include "CircularQueue.h"
+#include "ListQueue.h"
 using namespace std;
 
 int main()
 {
-	CQueue queue;
+	LQueue queue;
 	InitQueue(&queue);
 
-	for(int i = 2; i <= 100; i += 2)
+	for(int i = 1; i < 100; i+=2)
 	{
 		Enqueue(&queue, i);
 	}
 
-	while(!IsEmpty(&queue))
+	while(IsEmpty(&queue) == false)
 	{
 		cout << Dequeue(&queue) << " ";
 	}
+
 	return 0;
 }
